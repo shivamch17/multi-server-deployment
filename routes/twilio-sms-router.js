@@ -13,9 +13,9 @@ async function sendSMS(req, res) {
     try {
       const client = twilio(account.accountSid, account.authToken);
       const message = await client.messages.create({
-        body: 'Do Leetcode ASAP!',
+        body: account.smsBody,
         from: account.fromNumber,
-        to: '+919315288698'
+        to: account.toNumber
       });
       console.log(message.sid);
       res.send('SMS sent successfully');
