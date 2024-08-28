@@ -7,6 +7,9 @@ app.use(bodyParser.json());
 app.use('/r1', require('./routes/s1'));
 app.use('/r2', require('./routes/s2'));
 
+app.get('/', (req, res) => {
+    res.send('Welcome to SuperSonic Dev Server 🚀');
+});
 
 app.listen(3000, () => {
   console.log(`Server listening on port 3000`);
