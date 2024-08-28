@@ -1,10 +1,14 @@
 const express = require('express');
+const cors = require('cors');
 const bodyParser = require('body-parser');
 
 const app = express();
+app.use(cors());
+app.use(express.json());
 app.use(bodyParser.json());
+app.use(express.urlencoded({ extended: true }));
 
-app.use('/r1', require('./routes/s1'));
+app.use('/generate-image', require('./routes/image-generation-router'));
 app.use('/r2', require('./routes/s2'));
 
 app.get('/', (req, res) => {
