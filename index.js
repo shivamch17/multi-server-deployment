@@ -9,7 +9,7 @@ app.use(bodyParser.json());
 app.use(express.urlencoded({ extended: true }));
 
 app.use('/generate-image', require('./routes/image-generation-router'));
-app.use('/r2', require('./routes/s2'));
+app.use('/twilio-reminder', require('./routes/twilio-sms-router'));
 
 app.get('/', (req, res) => {
     res.send('Welcome to SuperSonic Dev Server 🚀');
